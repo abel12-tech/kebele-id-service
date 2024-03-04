@@ -1,43 +1,271 @@
-import React, { useState } from 'react'
-import { MdMenu } from "react-icons/md";
+import React, { useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-const Nav = () => {
-    let Links =[
-      {name:"Home",link:"/"},
-      {name:"Service",link:"/"},
-      {name:"About",link:"/"},
-      {name:"Blogs",link:"/"},
-      {name:"Contact",link:"/"},
-    ];
-    let [open,setOpen]=useState(false);
+  const images = [
+    "https://source.unsplash.com/random/800x400",
+    "https://source.unsplash.com/random/800x401",
+    "https://source.unsplash.com/random/800x402",
+  ];
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
-    <div className='shadow-md w-full fixed top-0 left-0'>
-      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
-      <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
-      text-gray-800'>
-        Designer
-      </div>
-      
-      <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
-      <MdMenu name={open ? 'close':'menu'}></MdMenu>
-      </div>
-
-      <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ':'top-[-490px]'}`}>
-        {
-          Links.map((link)=>(
-            <li key={link.name} className='md:ml-8 text-xl md:my-0 my-7'>
-              <a href={link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{link.name}</a>
-            </li>
-          ))
-        }
-        <button className='border bg-red-300 text-black px-3 ms-2 rounded'>
-          Get Started
+    <>
+      <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+        <div className="flex items-center flex-shrink-0 text-white mr-6">
+          <img
+            src="https://source.unsplash.com/random/50x50"
+            alt="Logo"
+            className="h-8 w-8 mr-2"
+          />
+          <span className="font-semibold text-xl tracking-tight">
+            MyWebsite
+          </span>
+        </div>
+        <div className="block lg:hidden">
+          <button
+            className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <svg
+              className="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+        <div
+          className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
+          <div className="text-sm lg:flex-grow">
+            <ul className="flex gap-x-8 lg:flex-row list-none lg:ml-auto">
+              <li className="nav-item text-white">
+                <a href="#home" className="nav-link">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#about" className="nav-link">
+                  About
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#services" className="nav-link">
+                  Services
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#contact" className="nav-link">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <button className="bg-transparent hover:bg-white text-white font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded">
+              Register
+            </button>
+            <button className="bg-transparent hover:bg-white text-white font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded ml-4">
+              Login
+            </button>
+          </div>
+        </div>
+      </nav>
+      {/* === carousel */}
+      <div className="relative">
+        {/* Add a semi-transparent overlay to improve readability of text */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <h1 className="absolute top-1/2 left-52 p-3 transform -translate-x-1/2 -translate-y-8 text-white text-3xl font-bold z-10">
+          Welcome To Our Site
+        </h1>
+        <img
+          src={images[currentIndex]}
+          alt="carousel"
+          className="w-full h-96 object-cover"
+        />
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full ${
+                index === currentIndex ? "bg-white" : "bg-gray-500"
+              }`}
+            ></button>
+          ))}
+        </div>
+        <button
+          onClick={handlePrev}
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white rounded-full p-2"
+        >
+          <ChevronLeftIcon className="h-6 w-6" />
         </button>
-      </ul>
+        <button
+          onClick={handleNext}
+          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black text-white rounded-full p-2"
+        >
+          <ChevronRightIcon className="h-6 w-6" />
+        </button>
       </div>
-    </div>
-  )
-}
+      {/* == Cards */}
 
-export default Nav
+      <div className="flex justify-center items-center w-full px-6 bg-gray-100">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="bg-white w-60 h-30 p-6 rounded-lg shadow-md hover:shadow-lg">
+            <div className="text-center text-4xl text-blue-500">🎉</div>
+            <h2 className="text-xl font-bold mt-4">Card 1</h2>
+            <p className="text-gray-600 mt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div className="bg-white w-60 h-30  p-6 rounded-lg shadow-md hover:shadow-lg">
+            <div className="text-center text-4xl text-green-500">🚀</div>
+            <h2 className="text-xl font-bold mt-4">Card 2</h2>
+            <p className="text-gray-600 mt-2">
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div className="bg-white w-60 h-30  p-6 rounded-lg shadow-md hover:shadow-lg">
+            <div className="text-center text-4xl text-indigo-500">🌟</div>
+            <h2 className="text-xl font-bold mt-4">Card 3</h2>
+            <p className="text-gray-600 mt-2">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* === How to apply == */}
+      <section className="bg-gray-100 py-12">
+        <h2 className="text-3xl font-bold text-center mb-8">
+          How To Apply For ID
+        </h2>
+        <div className="flex justify-center">
+          <div className="w-96 mx-4">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <img
+                src="https://source.unsplash.com/random/400x200"
+                alt="ID Card"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-bold mb-2">Get Started</h3>
+                <p className="text-gray-700 mb-4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <button className="block w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600">
+                  See More
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className=" w-96 mx-4">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <img
+                src="https://source.unsplash.com/random/400x201"
+                alt="ID Application"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-bold mb-2">Apply Online</h3>
+                <p className="text-gray-700 mb-4">
+                  Sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+                <button className="block w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600">
+                  See More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* == Footer */}
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <h2 className="text-lg font-bold mb-4">About</h2>
+              <ul>
+                <li className="mb-2">Our Story</li>
+                <li className="mb-2">Mission</li>
+                <li className="mb-2">Team</li>
+              </ul>
+            </div>
+            <div className="">
+              <h2 className="text-lg font-bold mb-4">Contact Us</h2>
+              <ul>
+                <li className="mb-2">Email</li>
+                <li className="mb-2">Phone</li>
+                <li className="mb-2">Location</li>
+              </ul>
+            </div>
+            <div className="ms-12">
+              <h2 className="text-lg font-bold mb-4">Help and Support</h2>
+              <ul>
+                <li className="mb-2">FAQ</li>
+                <li className="mb-2">Terms and Conditions</li>
+                <li className="mb-2">Privacy Policy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="py-4 text-center">
+          <p className="text-sm text-gray-400">Follow us on social media:</p>
+          <ul className="flex justify-center space-x-4">
+            <li>
+              <a href="#">
+                <img
+                  src="https://source.unsplash.com/random/30x30"
+                  alt="Facebook"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  src="https://source.unsplash.com/random/30x30"
+                  alt="Twitter"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  src="https://source.unsplash.com/random/30x30"
+                  alt="Instagram"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className=" py-4 text-center">
+          <p className="text-sm text-gray-400">
+            &copy; 2022 Your Company. All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+    </>
+  );
+};
+
+export default App;
