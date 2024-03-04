@@ -63,17 +63,17 @@ const App = () => {
                   Home
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item text-white">
                 <a href="#about" className="nav-link">
                   About
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item text-white">
                 <a href="#services" className="nav-link">
                   Services
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item text-white">
                 <a href="#contact" className="nav-link">
                   Contact
                 </a>
@@ -128,23 +128,23 @@ const App = () => {
       </div>
       {/* == Cards */}
 
-      <div className="flex justify-center items-center w-full px-6 bg-gray-100">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="bg-white w-60 h-30 p-6 rounded-lg shadow-md hover:shadow-lg">
+      <div className="flex flex-col items-center justify-center bg-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
             <div className="text-center text-4xl text-blue-500">🎉</div>
             <h2 className="text-xl font-bold mt-4">Card 1</h2>
             <p className="text-gray-600 mt-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </div>
-          <div className="bg-white w-60 h-30  p-6 rounded-lg shadow-md hover:shadow-lg">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
             <div className="text-center text-4xl text-green-500">🚀</div>
             <h2 className="text-xl font-bold mt-4">Card 2</h2>
             <p className="text-gray-600 mt-2">
               Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
-          <div className="bg-white w-60 h-30  p-6 rounded-lg shadow-md hover:shadow-lg">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
             <div className="text-center text-4xl text-indigo-500">🌟</div>
             <h2 className="text-xl font-bold mt-4">Card 3</h2>
             <p className="text-gray-600 mt-2">
@@ -155,12 +155,12 @@ const App = () => {
         </div>
       </div>
       {/* === How to apply == */}
-      <section className="bg-gray-100 py-12">
+      <section className="bg-gray-100 py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <h2 className="text-3xl font-bold text-center mb-8">
           How To Apply For ID
         </h2>
-        <div className="flex justify-center">
-          <div className="w-96 mx-4">
+        <div className="flex flex-col md:flex-row justify-center items-center">
+          <div className="w-full md:w-96 mx-4 mb-8 md:mb-0">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img
                 src="https://source.unsplash.com/random/400x200"
@@ -178,7 +178,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className=" w-96 mx-4">
+          <div className="w-full md:w-96 mx-4">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img
                 src="https://source.unsplash.com/random/400x201"
@@ -202,7 +202,7 @@ const App = () => {
       {/* == Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
             <div>
               <h2 className="text-lg font-bold mb-4">About</h2>
               <ul>
@@ -211,7 +211,7 @@ const App = () => {
                 <li className="mb-2">Team</li>
               </ul>
             </div>
-            <div className="">
+            <div>
               <h2 className="text-lg font-bold mb-4">Contact Us</h2>
               <ul>
                 <li className="mb-2">Email</li>
@@ -219,7 +219,7 @@ const App = () => {
                 <li className="mb-2">Location</li>
               </ul>
             </div>
-            <div className="ms-12">
+            <div>
               <h2 className="text-lg font-bold mb-4">Help and Support</h2>
               <ul>
                 <li className="mb-2">FAQ</li>
@@ -229,7 +229,7 @@ const App = () => {
             </div>
           </div>
         </div>
-        <div className="py-4 text-center">
+        <div className="bg-gray-800 py-4 text-center">
           <p className="text-sm text-gray-400">Follow us on social media:</p>
           <ul className="flex justify-center space-x-4">
             <li>
@@ -258,7 +258,7 @@ const App = () => {
             </li>
           </ul>
         </div>
-        <div className=" py-4 text-center">
+        <div className="bg-gray-700 py-4 text-center">
           <p className="text-sm text-gray-400">
             &copy; 2022 Your Company. All Rights Reserved.
           </p>
