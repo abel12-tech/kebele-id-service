@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import kebele1 from "./assets/kebele1.jpg";
+import kebele3 from "./assets/kebele3.jpg";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
-    "https://source.unsplash.com/random/800x400",
-    "https://source.unsplash.com/random/800x401",
-    "https://source.unsplash.com/random/800x402",
-  ];
+  const images = [kebele3, kebele1, kebele3];
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
