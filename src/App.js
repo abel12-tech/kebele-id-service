@@ -57,22 +57,22 @@ const App = () => {
           <div className="text-sm lg:flex-grow">
             <ul className="flex gap-x-8 lg:flex-row list-none lg:ml-auto">
               <li className="nav-item text-white">
-                <a href="#home" className="nav-link">
+                <a href="." className="nav-link">
                   Home
                 </a>
               </li>
               <li className="nav-item text-white">
-                <a href="#about" className="nav-link">
+                <a href="." className="nav-link">
                   About
                 </a>
               </li>
               <li className="nav-item text-white">
-                <a href="#services" className="nav-link">
+                <a href="#serices" className="nav-link">
                   Services
                 </a>
               </li>
               <li className="nav-item text-white">
-                <a href="#contact" className="nav-link">
+                <a href="." className="nav-link">
                   Contact
                 </a>
               </li>
@@ -231,7 +231,7 @@ const App = () => {
           <p className="text-sm text-gray-400">Follow us on social media:</p>
           <ul className="flex justify-center space-x-4">
             <li>
-              <a href="#">
+              <a href=".">
                 <img
                   src="https://source.unsplash.com/random/30x30"
                   alt="Facebook"
@@ -239,7 +239,7 @@ const App = () => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href=".">
                 <img
                   src="https://source.unsplash.com/random/30x30"
                   alt="Twitter"
@@ -247,7 +247,7 @@ const App = () => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href=".">
                 <img
                   src="https://source.unsplash.com/random/30x30"
                   alt="Instagram"
