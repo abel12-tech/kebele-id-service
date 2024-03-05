@@ -198,9 +198,9 @@ const App = () => {
         </div>
       </section>
       {/* ===Other */}
-      <div className="bg-gray-400 flex items-center justify-center">
-        <div className="rounded-lg p-3 w-full">
-          <div className="flex w-full py-6">
+      <div className="bg-gray-400 flex items-center justify-center p-3">
+        <div className="rounded-lg w-full">
+          <div className="flex w-full">
             <div className="w-full">
               <img
                 className=" h-auto w-full rounded object-cover"
