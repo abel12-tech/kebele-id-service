@@ -197,6 +197,43 @@ const App = () => {
           </div>
         </div>
       </section>
+      {/* ===Other */}
+      <div className="bg-gray-400 flex items-center justify-center">
+        <div className="rounded-lg p-3 w-full">
+          <div className="flex w-full py-6">
+            <div className="w-full">
+              <img
+                className=" h-auto w-full rounded object-cover"
+                src="https://source.unsplash.com/random"
+                alt="Random"
+              />
+            </div>
+            <div className="p-8 flex flex-col w-full">
+              <h2 className="block mt-1 text-3xl leading-tight font-bold text-black">
+                Before You Apply
+              </h2>
+              <ul className="list-disc mt-3">
+                <li>
+                  All applicants should secure an online appointment when
+                  applying for a passport
+                </li>
+                <li>
+                  All applicants should secure an online appointment when
+                  applying for a passport
+                </li>
+                <li>
+                  All applicants should secure an online appointment when
+                  applying for a passport
+                </li>
+                <li>
+                  All applicants should secure an online appointment when
+                  applying for a passport
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* == Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto">
@@ -226,40 +263,6 @@ const App = () => {
               </ul>
             </div>
           </div>
-        </div>
-        <div className="bg-gray-800 py-4 text-center">
-          <p className="text-sm text-gray-400">Follow us on social media:</p>
-          <ul className="flex justify-center space-x-4">
-            <li>
-              <a href=".">
-                <img
-                  src="https://source.unsplash.com/random/30x30"
-                  alt="Facebook"
-                />
-              </a>
-            </li>
-            <li>
-              <a href=".">
-                <img
-                  src="https://source.unsplash.com/random/30x30"
-                  alt="Twitter"
-                />
-              </a>
-            </li>
-            <li>
-              <a href=".">
-                <img
-                  src="https://source.unsplash.com/random/30x30"
-                  alt="Instagram"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="bg-gray-700 py-4 text-center">
-          <p className="text-sm text-gray-400">
-            &copy; 2022 Your Company. All Rights Reserved.
-          </p>
         </div>
       </footer>
     </>
