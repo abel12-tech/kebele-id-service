@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { MdMenu } from "react-icons/md";
+import { MdClose } from "react-icons/md";
 import kebele1 from "./assets/kebele1.jpg";
 import kebele3 from "./assets/kebele3.jpg";
 
@@ -36,17 +38,14 @@ const App = () => {
         </div>
         <div className="block lg:hidden">
           <button
-            className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white"
+            className="flex items-center px-3 py-2 text-white hover:text-white hover:border-white"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <svg
-              className="fill-current h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
+            {isOpen ? (
+              <MdClose className="fill-current h-8 w-8" />
+            ) : (
+              <MdMenu className="fill-current h-8 w-8" />
+            )}
           </button>
         </div>
         <div
@@ -55,34 +54,46 @@ const App = () => {
           }`}
         >
           <div className="text-sm lg:flex-grow">
-            <ul className="flex gap-x-8 lg:flex-row list-none lg:ml-auto">
-              <li className="nav-item text-white">
-                <a href="." className="nav-link">
+            <ul className="flex flex-col gap-9 p-8 lg:p-0 items-center lg:gap-x-8 lg:flex-row list-none lg:ml-auto">
+              <li className="nav-item">
+                <a
+                  href="."
+                  className="nav-link text-gray-400 font-bold md:text-1xl"
+                >
                   Home
                 </a>
               </li>
-              <li className="nav-item text-white">
-                <a href="." className="nav-link">
+              <li className="nav-item">
+                <a
+                  href="."
+                  className="nav-link text-gray-400 font-bold lg:text-1xl "
+                >
                   About
                 </a>
               </li>
-              <li className="nav-item text-white">
-                <a href="#serices" className="nav-link">
+              <li className="nav-item">
+                <a
+                  href="."
+                  className="nav-link text-gray-400 font-bold lg:text-1xl"
+                >
                   Services
                 </a>
               </li>
-              <li className="nav-item text-white">
-                <a href="." className="nav-link">
+              <li className="nav-item">
+                <a
+                  href="."
+                  className="nav-link text-gray-400 font-bold lg:text-1xl"
+                >
                   Contact
                 </a>
               </li>
             </ul>
           </div>
-          <div>
-            <button className="bg-transparent hover:bg-white text-white font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded">
+          <div className="flex items-center justify-center">
+            <button className="bg-transparent hover:bg-white text-gray-400 font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded">
               Register
             </button>
-            <button className="bg-transparent hover:bg-white text-white font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded ml-4">
+            <button className="bg-transparent hover:bg-white text-gray-400 font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded ml-4">
               Login
             </button>
           </div>
@@ -92,7 +103,7 @@ const App = () => {
       <div className="relative h-96">
         {/* Add a semi-transparent overlay to improve readability of text */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <h1 className="absolute top-40 w-1/2 left-1/3 transform -translate-x-1/2 -translate-y-8 text-gray-300 text-6xl text-nowrap font-medium z-10">
+        <h1 className=" absolute top-40 w-1/2 md:left-1/2 sm:left-64 left-48 mt-6 lg:left-1/3 transform -translate-x-1/2 -translate-y-8 text-gray-300 text-3xl lg:text-6xl font-medium z-10">
           Welcome To 4 Kilo Kebele ID Service
         </h1>
         <img
@@ -200,7 +211,7 @@ const App = () => {
       {/* ===Other */}
       <div className="bg-gray-400 flex items-center justify-center p-3">
         <div className="rounded-lg w-full">
-          <div className="flex w-full">
+          <div className="flex lg:flex-row flex-col w-full">
             <div className="w-full">
               <img
                 className=" h-auto w-full rounded object-cover"
@@ -237,7 +248,7 @@ const App = () => {
       {/* == Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+          <div className="flex justify-around p-4">
             <div>
               <h2 className="text-lg font-bold mb-4">About</h2>
               <ul>
@@ -265,6 +276,11 @@ const App = () => {
           </div>
         </div>
       </footer>
+      <div className="bg-gray-700 py-4 text-center">
+        <p className="text-sm text-gray-400">
+          &copy; 2022 
+        </p>
+      </div>
     </>
   );
 };
