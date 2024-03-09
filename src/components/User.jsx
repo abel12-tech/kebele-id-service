@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { MdMenu } from "react-icons/md";
 import { MdClose } from "react-icons/md";
+import logo from '../assets/kebele-id-service-high-resolution-logo.png'
+import id1 from "../assets/id1.jpeg";
+import id2 from "../assets/id2.jpg";
+import how from "../assets/how.jpg";
 import { IoMdCheckmark } from "react-icons/io";
 import kebele1 from "../assets/kebele1.jpg";
 import kebele3 from "../assets/kebele3.jpg";
@@ -39,15 +43,11 @@ const User = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+      <nav className="flex w-full h-24 items-center justify-between flex-wrap bg-gray-800 px-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <img
-            src="https://source.unsplash.com/random/50x50"
-            alt="Logo"
-            className="h-8 w-8 mr-2"
-          />
+          <img src={logo} alt="Logo" className=" h-24 w-50 bg-black mr-2 " />
           <span className="font-semibold text-xl tracking-tight">
-            MyWebsite
+            Kebele Id Service
           </span>
         </div>
         <div className="block lg:hidden">
@@ -104,10 +104,10 @@ const User = () => {
             </ul>
           </div>
           <div className="flex items-center justify-center">
-            <button className="bg-transparent hover:bg-white text-gray-400 font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded">
+            <button className="bg-transparent bg-[#FDC351] text-gray-600 font-semibold hover:text-gray-800 py-2 px-4 border border-white rounded">
               Register
             </button>
-            <button className="bg-transparent hover:bg-white text-gray-400 font-semibold hover:text-gray-800 py-2 px-4 border border-white hover:border-transparent rounded ml-4">
+            <button className="bg-transparent bg-[#FDC351] text-gray-600 font-semibold hover:text-gray-800 py-2 px-4 border border-white rounded ml-4">
               Login
             </button>
           </div>
@@ -194,7 +194,7 @@ const User = () => {
           <div className="w-full md:w-96 mx-4 mb-8 md:mb-0">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img
-                src="https://source.unsplash.com/random/400x200"
+                src={id1}
                 alt="ID Card"
                 className="w-full h-48 object-cover"
               />
@@ -203,7 +203,7 @@ const User = () => {
                 <p className="text-gray-700 mb-4">
                   Find step by step guide for applying for your ID online.
                 </p>
-                <button className="block w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600">
+                <button className="block w-full bg-[#FDC351] text-gray-600 font-semibold py-2 rounded-lg hover:bg-[#d1ae67]">
                   See More
                 </button>
               </div>
@@ -212,16 +212,16 @@ const User = () => {
           <div className="w-full md:w-96 mx-4 mb-8 md:mb-0">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img
-                src="https://source.unsplash.com/random/400x200"
+                src={id2}
                 alt="ID Card"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-bold mb-2">Get Started</h3>
+                <h3 className="text-xl font-bold mb-2">Apply Online</h3>
                 <p className="text-gray-700 mb-4">
                   Find step by step guide for applying for your ID online.
                 </p>
-                <button className="block w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600">
+                <button className="block w-full bg-[#FDC351] text-gray-600 font-semibold py-2 rounded-lg hover:bg-[#d1ae67]">
                   See More
                 </button>
               </div>
@@ -236,7 +236,7 @@ const User = () => {
             <div className="w-full">
               <img
                 className=" h-72 w-full rounded object-cover"
-                src="https://source.unsplash.com/random"
+                src={how}
                 alt="Random"
               />
             </div>
@@ -282,22 +282,20 @@ const User = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-2">About ID Service</h3>
+            <h3 className="text-lg font-bold mb-2">Contact Us</h3>
             <p>
               <ul>
-                <li>Requirements</li>
-                <li>Schedule an Appointment</li>
-                <li>Status</li>
+                <li>Addis Ababa,Ethiopia</li>
+                <li>833 FREE CALL</li>
+                <li>kebele01@idservice.gov.et</li>
               </ul>
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-2">About ID Service</h3>
+            <h3 className="text-lg font-bold mb-2">Help and Support</h3>
             <p>
               <ul>
-                <li>Requirements</li>
-                <li>Schedule an Appointment</li>
-                <li>Status</li>
+                <li>FAQ</li>
               </ul>
             </p>
           </div>

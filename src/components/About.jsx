@@ -178,22 +178,20 @@ const About = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-2">About ID Service</h3>
+            <h3 className="text-lg font-bold mb-2">Contact Us</h3>
             <p>
               <ul>
-                <li>Requirements</li>
-                <li>Schedule an Appointment</li>
-                <li>Status</li>
+                <li>Addis Ababa,Ethiopia</li>
+                <li>833 FREE CALL</li>
+                <li>kebele01@idservice.gov.et</li>
               </ul>
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-2">About ID Service</h3>
+            <h3 className="text-lg font-bold mb-2">Help and Support</h3>
             <p>
               <ul>
-                <li>Requirements</li>
-                <li>Schedule an Appointment</li>
-                <li>Status</li>
+                <li>FAQ</li>
               </ul>
             </p>
           </div>
