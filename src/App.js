@@ -1,16 +1,19 @@
 // App.js
 import { Routes, Route } from "react-router-dom";
 import Admin from "./components/Admin";
-import User from "./components/User";
-import About from "./components/About";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import ContactUs from "./pages/ContactUs";
+
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<User />} />
+        <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </>
   );
