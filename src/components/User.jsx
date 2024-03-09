@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { MdMenu } from "react-icons/md";
 import { MdClose } from "react-icons/md";
+import { IoMdCheckmark } from "react-icons/io";
 import kebele1 from "../assets/kebele1.jpg";
 import kebele3 from "../assets/kebele3.jpg";
 const User = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const images = [kebele3, kebele1, kebele3];
 
@@ -21,6 +23,19 @@ const User = () => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
+
+  useEffect(() => {
+    let interval;
+    if (isHovered) {
+      interval = setInterval(() => {
+        setCurrentIndex((prevIndex) =>
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 1000);
+    }
+
+    return () => clearInterval(interval);
+  }, [isHovered, currentIndex, images.length]);
 
   return (
     <>
@@ -99,7 +114,11 @@ const User = () => {
         </div>
       </nav>
       {/* === carousel */}
-      <div className="relative h-96">
+      <div
+        className="relative h-96"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* Add a semi-transparent overlay to improve readability of text */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <h1 className=" absolute top-40 w-1/2 md:left-1/2 sm:left-64 left-48 mt-6 lg:left-1/3 transform -translate-x-1/2 -translate-y-8 text-gray-300 text-3xl lg:text-6xl font-medium z-10">
@@ -140,31 +159,35 @@ const User = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
             <div className="text-center text-4xl text-blue-500">🎉</div>
-            <h2 className="text-xl font-bold mt-4">Card 1</h2>
+            <h2 className="text-xl font-bold text-center mt-4">
+              Start New Appilication
+            </h2>
             <p className="text-gray-600 mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              To have Addis Ababa ID seamlessly start your Appilication right
+              now
             </p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
             <div className="text-center text-4xl text-green-500">🚀</div>
-            <h2 className="text-xl font-bold mt-4">Card 2</h2>
+            <h2 className="text-xl font-bold text-center mt-4">Register</h2>
             <p className="text-gray-600 mt-2">
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Register for applying and getting status update to your phone
+              number through SMS.
             </p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
             <div className="text-center text-4xl text-indigo-500">🌟</div>
-            <h2 className="text-xl font-bold mt-4">Card 3</h2>
+            <h2 className="text-xl font-bold text-center mt-4">Check Status</h2>
             <p className="text-gray-600 mt-2">
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Check status of your Addis Ababa ID and get notified when its
+              changed.
             </p>
           </div>
         </div>
       </div>
       {/* === How to apply == */}
       <section className="bg-gray-100 py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2 className="text-3xl font-bold text-center mb-16">
           How To Apply For ID
         </h2>
         <div className="flex flex-col md:flex-row justify-center items-center">
@@ -178,7 +201,7 @@ const User = () => {
               <div className="p-4">
                 <h3 className="text-xl font-bold mb-2">Get Started</h3>
                 <p className="text-gray-700 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Find step by step guide for applying for your ID online.
                 </p>
                 <button className="block w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600">
                   See More
@@ -186,18 +209,17 @@ const User = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-96 mx-4">
+          <div className="w-full md:w-96 mx-4 mb-8 md:mb-0">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img
-                src="https://source.unsplash.com/random/400x201"
-                alt="ID Application"
+                src="https://source.unsplash.com/random/400x200"
+                alt="ID Card"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-bold mb-2">Apply Online</h3>
+                <h3 className="text-xl font-bold mb-2">Get Started</h3>
                 <p className="text-gray-700 mb-4">
-                  Sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua.
+                  Find step by step guide for applying for your ID online.
                 </p>
                 <button className="block w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600">
                   See More
@@ -208,12 +230,12 @@ const User = () => {
         </div>
       </section>
       {/* ===Other */}
-      <div className="bg-gray-400 flex items-center justify-center p-3">
+      <div className="bg-gray-100 flex items-center justify-center px-3 py-12">
         <div className="rounded-lg w-full">
           <div className="flex lg:flex-row flex-col w-full">
             <div className="w-full">
               <img
-                className=" h-auto w-full rounded object-cover"
+                className=" h-72 w-full rounded object-cover"
                 src="https://source.unsplash.com/random"
                 alt="Random"
               />
@@ -222,22 +244,24 @@ const User = () => {
               <h2 className="block mt-1 text-3xl leading-tight font-bold text-black">
                 Before You Apply
               </h2>
-              <ul className="list-disc mt-3">
-                <li>
-                  All applicants should secure an online appointment when
-                  applying for a passport
+              <ul className="mt-3">
+                <li className="flex items-center p-2">
+                  <IoMdCheckmark className="w-8 h-8 lg:w-6 lg:h-6 text-purple-700 font-bold mr-2 bg-white  rounded" />
+                  You have to Live in Addis Ababa at least for 1 year.
                 </li>
-                <li>
-                  All applicants should secure an online appointment when
-                  applying for a passport
+                <li className="flex items-center p-2 lg:truncate">
+                  <IoMdCheckmark className="w-8 h-8 lg:w-6 lg:h-6 text-purple-700 font-bold mr-2 bg-white  rounded" />
+                  If your age is above 18 , the last id you took should be
+                  provided.
                 </li>
-                <li>
-                  All applicants should secure an online appointment when
-                  applying for a passport
+                <li className="flex items-center p-2 lg:truncate">
+                  <IoMdCheckmark className="w-8 h-8 lg:w-6 lg:h-6 text-purple-700 font-bold mr-2 bg-white  rounded" />
+                  For relocation the id and letter should be brought from where
+                  you have been living before.
                 </li>
-                <li>
-                  All applicants should secure an online appointment when
-                  applying for a passport
+                <li className="flex items-center p-2">
+                  <IoMdCheckmark className="w-6 h-6 text-purple-700 font-bold mr-2 bg-white  rounded" />
+                  To apply for ID your age must be above 18.
                 </li>
               </ul>
             </div>
@@ -245,39 +269,43 @@ const User = () => {
         </div>
       </div>
       {/* == Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto">
-          <div className="flex justify-around p-4">
-            <div>
-              <h2 className="text-lg font-bold mb-4">About</h2>
+      <footer className="bg-gray-800 text-white">
+        <div className="container mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <h3 className="text-lg font-bold mb-2">About ID Service</h3>
+            <p>
               <ul>
-                <li className="mb-2">Our Story</li>
-                <li className="mb-2">Mission</li>
-                <li className="mb-2">Team</li>
+                <li>Requirements</li>
+                <li>Schedule an Appointment</li>
+                <li>Status</li>
               </ul>
-            </div>
-            <div>
-              <h2 className="text-lg font-bold mb-4">Contact Us</h2>
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-2">About ID Service</h3>
+            <p>
               <ul>
-                <li className="mb-2">Email</li>
-                <li className="mb-2">Phone</li>
-                <li className="mb-2">Location</li>
+                <li>Requirements</li>
+                <li>Schedule an Appointment</li>
+                <li>Status</li>
               </ul>
-            </div>
-            <div>
-              <h2 className="text-lg font-bold mb-4">Help and Support</h2>
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-2">About ID Service</h3>
+            <p>
               <ul>
-                <li className="mb-2">FAQ</li>
-                <li className="mb-2">Terms and Conditions</li>
-                <li className="mb-2">Privacy Policy</li>
+                <li>Requirements</li>
+                <li>Schedule an Appointment</li>
+                <li>Status</li>
               </ul>
-            </div>
+            </p>
           </div>
         </div>
+        <div className="bg-gray-700 p-4 text-center">
+          <p className="text-sm">Copyright © 2023. All Rights Reserved.</p>
+        </div>
       </footer>
-      <div className="bg-gray-700 py-4 text-center">
-        <p className="text-sm text-gray-400">&copy; 2022</p>
-      </div>
     </>
   );
 };
