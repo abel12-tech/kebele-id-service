@@ -8,7 +8,9 @@ const Navbar = () => {
   return (
     <nav className="flex w-full items-center justify-between flex-wrap bg-gray-800 px-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <img src={logo} alt="Logo" className=" h-24 w-50 bg-black mr-2 " />
+        <Link to="/">
+          <img src={logo} alt="Logo" className=" h-24 w-50 bg-black mr-2 " />
+        </Link>
       </div>
       <div className="block lg:hidden">
         <button

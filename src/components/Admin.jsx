@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdDashboard } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
 import { MdAppRegistration } from "react-icons/md";
+import logo from "../assets/kebele-id-service-high-resolution-logo.png";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -14,6 +15,38 @@ const Dashboard = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 5;
+  const startIndex = (currentPage - 1) * rowsPerPage;
+  const endIndex = currentPage * rowsPerPage;
+
+  const handlePageChange = (direction) => {
+    if (direction === "next" && currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    } else if (direction === "prev" && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const data = [
+    { id: 1, firstName: "John", lastName: "Doe" },
+    { id: 2, firstName: "Jane", lastName: "Doe" },
+    { id: 3, firstName: "Alice", lastName: "Smith" },
+    { id: 4, firstName: "Bob", lastName: "Johnson" },
+    { id: 5, firstName: "Eve", lastName: "Williams" },
+    { id: 6, firstName: "Charlie", lastName: "Brown" },
+    { id: 7, firstName: "David", lastName: "Miller" },
+    { id: 8, firstName: "Emily", lastName: "Wilson" },
+    { id: 9, firstName: "Frank", lastName: "Davis" },
+    { id: 10, firstName: "Grace", lastName: "Moore" },
+    { id: 11, firstName: "Henry", lastName: "Lee" },
+    { id: 12, firstName: "Ivy", lastName: "Clark" },
+    { id: 13, firstName: "Jack", lastName: "Young" },
+    { id: 14, firstName: "Kim", lastName: "Hall" },
+    { id: 15, firstName: "Leo", lastName: "Adams" },
+  ];
+
+  const totalPages = Math.ceil(data.length / rowsPerPage);
 
   return (
     <div className="flex h-screen">
@@ -24,11 +57,7 @@ const Dashboard = () => {
         } sm:block`}
       >
         <div className="p-4">
-          <img
-            src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9nb3xlbnwwfHwwfHx8MA%3D%3D"
-            className="w-40 h-30"
-            alt=""
-          />
+          <img src={logo} className="w-40 h-30" alt="" />
         </div>
         <ul className="py-12">
           <li
@@ -81,11 +110,7 @@ const Dashboard = () => {
             </svg>
           </button>
           <div>
-            <img
-              src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9nb3xlbnwwfHwwfHx8MA%3D%3D"
-              className="w-30 h-10"
-              alt=""
-            />
+            <img src={logo} className="w-30 h-10" alt="" />
           </div>
           <div className="flex items-center gap-4">
             <input
@@ -131,7 +156,7 @@ const Dashboard = () => {
           </div>
         </div>
         {/* Main Content Area */}
-        <div className="p-4">
+        {/* <div className="p-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-white border p-4 rounded-lg shadow-lg">
               <div className="flex justify-between items-center mb-4">
@@ -241,6 +266,62 @@ const Dashboard = () => {
                 alt="Pie Chart"
               />
             </div>
+          </div>
+        </div> */}
+        {/* Table ==== */}
+        <div className="flex flex-col items-center p-8 justify-center">
+          <table className="min-w-full divide-y divide-gray-200 overflow-hidden shadow-md sm:min-w-screen-md">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  ID
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  First Name
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Last Name
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {data.slice(startIndex, endIndex).map((row) => (
+                <tr key={row.id}>
+                  <td className="px-6 py-4 whitespace-nowrap">{row.id}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {row.firstName}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {row.lastName}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      View
+                    </button>
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2">
+                      Update Status
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() => handlePageChange("prev")}
+              className="mx-1 px-3 py-1 rounded-lg bg-blue-500 text-white"
+            >
+              Previous
+            </button>
+            <button
+              onClick={() => handlePageChange("next")}
+              className="mx-1 px-3 py-1 rounded-lg bg-blue-500 text-white"
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
