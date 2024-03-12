@@ -66,12 +66,18 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center justify-center">
-          <button className="bg-transparent bg-[#FDC351] text-gray-600 font-semibold hover:text-gray-800 py-2 px-4 border border-white rounded">
+          <Link
+            to="/register"
+            className="bg-[#FDC351] text-gray-600 font-semibold  py-2 px-4 border border-white rounded"
+          >
             Register
-          </button>
-          <button className="bg-transparent bg-[#FDC351] text-gray-600 font-semibold hover:text-gray-800 py-2 px-4 border border-white rounded ml-4">
+          </Link>
+          <Link
+            to="/login"
+            className="bg-[#FDC351] text-gray-600 font-semibold  py-2 px-4 border border-white rounded ml-4"
+          >
             Login
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

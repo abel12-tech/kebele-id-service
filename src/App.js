@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import Profile from "./pages/Profile";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 
 
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );

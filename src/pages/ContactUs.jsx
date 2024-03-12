@@ -11,7 +11,7 @@ const ContactUs = () => {
           <h1 className="text-3xl mb-6 text-center">Contact Us</h1>
           <form className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
+              <div className="col-span-2">
                 <label
                   htmlFor="firstname"
                   className="block text-gray-800 font-bold mb-2"
@@ -26,7 +26,7 @@ const ContactUs = () => {
                   placeholder="Enter your first name"
                 />
               </div>
-              <div>
+              <div className="col-span-2">
                 <label
                   htmlFor="lastname"
                   className="block text-gray-800 font-bold mb-2"
