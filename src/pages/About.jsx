@@ -55,7 +55,17 @@ const About = () => {
             </div>
           </div>
           <div className="flex flex-col gap-8 lg:flex-row items-center justify-center lg:justify-between p-6 mt-8">
-            <div className="lg:w-1/3 flex flex-col justify-center items-center">
+            <div className="lg:w-1/3 border-2 border-gray-300 p-4 flex flex-col justify-center items-center">
+              <h3 className="text-2xl font-bold mb-2">Vision</h3>
+              <div className=" border-b-2 border-gray-300 mb-4"></div>
+              <p className="text-gray-700">
+                Our vision being one of the 10 best agencies in Africa in 2022
+                through supporting the information and service provision with
+                technology, making the quality fits with international standards
+                and ensuring its security.
+              </p>
+            </div>
+            <div className="lg:w-1/3 border-2 border-gray-300 p-4 flex flex-col justify-center items-center">
               <h3 className="text-2xl font-bold mb-2">Vision</h3>
               <div className="border-b-2 border-gray-300 mb-4"></div>
               <p className="text-gray-700">
@@ -65,17 +75,7 @@ const About = () => {
                 and ensuring its security.
               </p>
             </div>
-            <div className="lg:w-1/3 flex flex-col justify-center items-center">
-              <h3 className="text-2xl font-bold mb-2">Vision</h3>
-              <div className="border-b-2 border-gray-300 mb-4"></div>
-              <p className="text-gray-700">
-                Our vision being one of the 10 best agencies in Africa in 2022
-                through supporting the information and service provision with
-                technology, making the quality fits with international standards
-                and ensuring its security.
-              </p>
-            </div>
-            <div className="lg:w-1/3 flex flex-col justify-center items-center">
+            <div className="lg:w-1/3 border-2 border-gray-300 p-4 flex flex-col justify-center items-center">
               <h3 className="text-2xl font-bold mb-2">Vision</h3>
               <div className="border-b-2 border-gray-300 mb-4"></div>
               <p className="text-gray-700">
