@@ -35,19 +35,19 @@ const Hero = () => {
 
   return (
     <div
-      className="relative h-96"
+      className="relative h-screen"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Add a semi-transparent overlay to improve readability of text */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
-      <h1 className=" absolute top-40 w-1/2 md:left-1/2 sm:left-64 left-48 mt-6 lg:left-1/3 transform -translate-x-1/2 -translate-y-8 text-gray-300 text-3xl lg:text-6xl font-medium z-10">
+      <h1 className=" absolute top-64 w-1/2 md:left-1/2 sm:left-64 left-48 mt-6 lg:left-1/3 transform -translate-x-1/2 -translate-y-8 text-gray-300 text-3xl lg:text-6xl font-medium z-1">
         Welcome To 4 Kilo Kebele ID Service
       </h1>
       <img
         src={images[currentIndex]}
         alt="carousel"
-        className="w-full h-96 object-cover"
+        className="w-full h-screen object-cover"
       />
       <div className="absolute  bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (
