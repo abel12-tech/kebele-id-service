@@ -13,10 +13,6 @@ const Navbar = () => {
     }
   };
 
-  const handleMouseLeave = () => {
-    setShowMenu(false);
-  };
-
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -27,7 +23,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 z-10 w-full flex items-center justify-between bg-gray-800 text-white p-4">
       <div className="flex">
-        <img src={logo} alt="Logo" className="h-10 w-50 mr-4" />
+        <img
+          src={logo}
+          alt="Logo"
+          className="h-16 w-50 mr-4"
+        />
         <div className="hidden  md:flex lg:flex items-center gap-x-10">
           <Link to="/" className="nav-link text-gray-400 font-bold md:text-1xl">
             Home
@@ -64,14 +64,12 @@ const Navbar = () => {
         </Link>
       </div>
       <button className="md:hidden" onClick={() => setShowMenu(!showMenu)}>
-        <MdMenu className="fill-current h-8 w-8" />
+      <MdMenu className="fill-current h-8 w-8" />
       </button>
       {showMenu && (
         <div
           ref={menuRef}
           className="md:hidden fixed top-0 right-0 w-1/2 h-full bg-gray-800 text-white p-4"
-          onMouseLeave={handleMouseLeave}
-          onMouseEnter={() => setShowMenu(true)}
         >
           <button
             className="absolute top-0 right-0 p-2"

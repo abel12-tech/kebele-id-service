@@ -6,7 +6,7 @@ const ContactUs = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8 bg-gray-100">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8 mt-32 bg-gray-100">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h1 className="text-3xl mb-6 text-center">Contact Us</h1>
           <form className="space-y-4">

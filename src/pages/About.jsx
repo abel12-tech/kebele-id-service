@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center mt-16 min-h-screen">
         <div className="containe mx-aut p-6">
           <div className="flex flex-col gap-x-16 lg:flex-row items-center justify-center lg:justify-between p-8">
             <div className="lg:w-1/2 mb-4 lg:mb-0">
