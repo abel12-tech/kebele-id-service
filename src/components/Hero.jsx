@@ -42,7 +42,7 @@ const Hero = () => {
       {/* Add a semi-transparent overlay to improve readability of text */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <h1 className=" absolute top-72 w-1/2 md:left-1/2 sm:left-64 left-48 mt-6 lg:left-1/3 transform -translate-x-1/2 -translate-y-8 text-gray-300 text-3xl lg:text-7xl font-medium z-1">
-        Welcome To 4 Kilo Kebele ID Service
+        Welcome To Addis Ababa Kebele ID Service
       </h1>
       <img
         src={images[currentIndex]}

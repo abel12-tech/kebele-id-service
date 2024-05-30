@@ -4,8 +4,8 @@ import Navbar from "../components/Navbar";
 const Login = () => {
   return (
     <>
-    <Navbar/>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 p-16">
+      <Navbar />
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-8 md:p-16">
         <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
           <h1 className="text-2xl mb-6 text-center">Sign in to your account</h1>
           <form className="space-y-4">

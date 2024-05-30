@@ -1,0 +1,1 @@
+export const BASE_URL = "https://kebele-id-renewal-and-issuing-backend.onrender.com/api/v1";
