@@ -4,6 +4,8 @@ import { useRegisterResidentMutation } from "../features/authentication/api/auth
 import { storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -27,7 +29,7 @@ const Register = () => {
       const imageRef = ref(storage, `Blog-images/${profile.name + v4()}`);
       await uploadBytes(imageRef, profile);
       const imageUrl = await getDownloadURL(imageRef);
-      await register({
+      const res = await register({
         firstName,
         lastName,
         phoneNumber,
@@ -37,6 +39,10 @@ const Register = () => {
       });
 
       setRegistering(false);
+      console.log("rrr", res);
+      toast.success("user registered successfully", {
+        position: "top-right",
+      });
       setFirstName("");
       setLastName("");
       setPhoneNumber("");
@@ -52,6 +58,7 @@ const Register = () => {
       <Navbar />
       <div className="flex items-center justify-center min-h-screen bg-gray-100 overflow-y-hidden p-4 sm:p-8 md:p-16">
         <div className="bg-white px-4 py-4 rounded-lg shadow-md w-full max-w-lg">
+          <ToastContainer position="top-right" duration={2000} />
           <h1 className="text-2xl mb-6 text-center">Register</h1>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

@@ -5,6 +5,6 @@ POST https://kebele-id-renewal-and-issuing-backend.onrender.com/api/v1/admin/log
 Content-Type: application/json
 
 {
-      "phoneNumber": "09102",
-       "password": "cc3377ch"
+      "phoneNumber": "0912131213",
+       "password": "123456"
 }
