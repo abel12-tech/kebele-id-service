@@ -27,7 +27,7 @@ const Register = () => {
       const imageRef = ref(storage, `Blog-images/${profile.name + v4()}`);
       await uploadBytes(imageRef, profile);
       const imageUrl = await getDownloadURL(imageRef);
-      const response = await register({
+      await register({
         firstName,
         lastName,
         phoneNumber,

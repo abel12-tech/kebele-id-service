@@ -1,0 +1,10 @@
+GET https://kebele-id-renewal-and-issuing-backend.onrender.com/api/v1/resident/
+
+### 
+POST https://kebele-id-renewal-and-issuing-backend.onrender.com/api/v1/admin/login/
+Content-Type: application/json
+
+{
+      "phoneNumber": "09102",
+       "password": "cc3377ch"
+}
