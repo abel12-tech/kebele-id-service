@@ -56,8 +56,10 @@ const Navbar = () => {
           >
             About
           </Link>
-          <Link to="/" className="nav-link text-gray-400 font-bold lg:text-1xl">
-            Services
+          <Link to="/request-appointment
+          " className="nav-link text-gray-400 font-bold lg:text-1xl">
+            ID Appointment
+            
           </Link>
           <Link
             to="/contact"

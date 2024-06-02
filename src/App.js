@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import RequestAppointment from "./pages/RequestAppointment";
 
 
 
@@ -20,6 +21,8 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/request-appointment" element={<RequestAppointment
+         />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </>
