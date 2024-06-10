@@ -15,9 +15,9 @@ export const applyApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    giveReview: builder.mutation({
+    applyForId: builder.mutation({
       query: (data) => ({
-        url: `/serviceReview/`,
+        url: `/id/`,
         method: "POST",
         body: data,
       }),
@@ -25,4 +25,4 @@ export const applyApi = createApi({
   }),
 });
 
-export const {} = applyApi;
+export const { useApplyForIdMutation } = applyApi;

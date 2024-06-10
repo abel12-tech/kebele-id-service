@@ -6,6 +6,10 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { setToken } from "../features/authentication/slice/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useGetAllKebelesQuery } from "../features/kebele/kebeleApi";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -17,6 +21,15 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [registering, setRegistering] = useState(false);
   const [register] = useRegisterResidentMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {
+    data: kebeles,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetAllKebelesQuery();
 
   const handleFileChange = (e) => {
     setProfile(e.target.files[0]);
@@ -39,14 +52,18 @@ const Register = () => {
       });
 
       setRegistering(false);
-      console.log("rrr", res);
-      toast.success("user registered successfully", {
+
+      dispatch(setToken(res.data.data.token));
+      toast.success("User registered successfully", {
         position: "top-right",
       });
+      navigate("/");
+      window.location.reload();
+
       setFirstName("");
       setLastName("");
       setPhoneNumber("");
-      setProfile("");
+      setProfile(null);
       setPassword("");
     } catch (error) {
       setError("Invalid phone number or password");
@@ -147,9 +164,14 @@ const Register = () => {
                 onChange={(e) => setKebele(e.target.value)}
               >
                 <option value="">Select your kebele</option>
-                <option value="665856fccaf15bb0cbce52b1">Kebele 1</option>
-                <option value="other_kebele_id">Kebele 2</option>
-                {/* Add other kebele options as needed */}
+                {isLoading && <option>Loading kebeles...</option>}
+                {isError && <option>Error loading kebeles</option>}
+                {isSuccess &&
+                  kebeles.map((kebele) => (
+                    <option key={kebele._id} value={kebele._id}>
+                      {kebele.name}
+                    </option>
+                  ))}
               </select>
             </div>
             <div>
@@ -175,7 +197,7 @@ const Register = () => {
                 type="submit"
                 className="w-full rounded-lg bg-[#FDC351] text-gray-600 hover:bg-[#d1ae67] px-4 py-2"
               >
-                {registering ? "registering..." : "Register"}
+                {registering ? "Registering..." : "Register"}
               </button>
             </div>
           </form>

@@ -1,12 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo from "../assets/kebele-id-service-high-resolution-logo.png";
 import { MdClose, MdMenu } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  logout,
+  selectIsAuthenticated,
+} from "../features/authentication/slice/authSlice";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const menuRef = useRef(null);
   const profileMenuRef = useRef(null);
 
@@ -38,8 +45,10 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
     closeProfileMenu();
+    dispatch(logout());
+    navigate("/login");
+    window.location.reload();
   };
 
   return (
@@ -56,10 +65,11 @@ const Navbar = () => {
           >
             About
           </Link>
-          <Link to="/request-appointment
-          " className="nav-link text-gray-400 font-bold lg:text-1xl">
-            ID Appointment
-            
+          <Link
+            to="/request-appointment"
+            className="nav-link text-gray-400 font-bold lg:text-1xl"
+          >
+            Request for ID
           </Link>
           <Link
             to="/contact"
@@ -70,7 +80,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="hidden md:flex items-center relative">
-        {isLoggedIn ? (
+        {isAuthenticated ? (
           <div className="relative" ref={profileMenuRef}>
             <button
               className="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
@@ -172,7 +182,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            {isLoggedIn ? (
+            {isAuthenticated ? (
               <div className="relative flex flex-col items-center">
                 <img
                   src="https://via.placeholder.com/40" // Replace with actual user profile image URL
