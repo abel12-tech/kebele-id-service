@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const resident = useSelector(selectResidentInfo);
-  const profile = resident.profile;
+  const profile = resident ? resident.profile : null; // Safely accessing profile
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -93,7 +93,7 @@ const Navbar = () => {
             >
               <img
                 className="object-cover w-10 h-10 rounded-full"
-                src={profile}
+                src={profile || "https://via.placeholder.com/40"} // Use a placeholder if profile is null
                 alt="User Profile"
                 aria-hidden="true"
               />
@@ -174,10 +174,10 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              to="/"
+              to="/request-appointment"
               className="nav-link text-gray-400 font-bold lg:text-1xl"
             >
-              Services
+              Request for ID
             </Link>
             <Link
               to="/contact"
@@ -188,7 +188,7 @@ const Navbar = () => {
             {isAuthenticated ? (
               <div className="relative flex flex-col items-center">
                 <img
-                  src="https://via.placeholder.com/40" // Replace with actual user profile image URL
+                  src={profile || "https://via.placeholder.com/40"} // Use a placeholder if profile is null
                   alt="User Profile"
                   className="h-10 w-10 rounded-full border border-white cursor-pointer"
                   onClick={toggleProfileMenu}
