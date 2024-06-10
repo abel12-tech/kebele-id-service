@@ -6,12 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   logout,
   selectIsAuthenticated,
+  selectResidentInfo,
 } from "../features/authentication/slice/authSlice";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const isAuthenticated = useSelector(selectIsAuthenticated);
+  const resident = useSelector(selectResidentInfo);
+  const profile = resident.profile;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -90,7 +93,7 @@ const Navbar = () => {
             >
               <img
                 className="object-cover w-10 h-10 rounded-full"
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D"
+                src={profile}
                 alt="User Profile"
                 aria-hidden="true"
               />
