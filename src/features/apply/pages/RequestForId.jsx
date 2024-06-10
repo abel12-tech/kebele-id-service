@@ -15,7 +15,9 @@ const RequestForId = () => {
   const [lastIdImage, setLastIdImage] = useState(null);
   const [apply, { isLoading }] = useApplyForIdMutation();
   const residentInfo = useSelector(selectResidentInfo);
-  const [resident, setResident] = useState(residentInfo._id);
+  const [resident, setResident] = useState(
+    residentInfo ? residentInfo._id : ""
+  );
   const [reservationDate, setReservationDate] = useState("");
 
   useEffect(() => {
@@ -48,6 +50,20 @@ const RequestForId = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!residentInfo) {
+      toast.error(
+        "You must be registered to request an ID. Redirecting to registration page...",
+        {
+          position: "top-right",
+        }
+      );
+
+      setTimeout(() => {
+        navigate("/register");
+      }, 2000); 
+      return;
+    }
+
     try {
       const res = await apply({
         resident,
@@ -94,8 +110,9 @@ const RequestForId = () => {
                 name="resident"
                 className="w-full outline-none border border-gray-300 p-2 rounded-lg"
                 placeholder="Enter your resident ID"
-                value={residentInfo._id}
+                value={resident}
                 onChange={(e) => setResident(e.target.value)}
+                disabled
               />
             </div>
             <div>
