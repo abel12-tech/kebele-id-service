@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { useLoginMutation } from "../features/authentication/api/authApi";
 import { useDispatch } from "react-redux";
-import { setToken } from "../features/authentication/slice/authSlice";
+import { setTokenOnLogin } from "../features/authentication/slice/authSlice";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,7 +22,7 @@ const Login = () => {
         throw new Error(res.error.data.message);
       }
 
-      dispatch(setToken(res.data.data));
+      dispatch(setTokenOnLogin(res.data.data));
       navigate("/");
       window.location.reload();
       toast.success("Login successful", {

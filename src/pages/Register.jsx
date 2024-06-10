@@ -6,7 +6,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { setToken } from "../features/authentication/slice/authSlice";
+import { setTokenOnRegister } from "../features/authentication/slice/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useGetAllKebelesQuery } from "../features/kebele/kebeleApi";
@@ -53,7 +53,7 @@ const Register = () => {
 
       setRegistering(false);
 
-      dispatch(setToken(res.data.data.token));
+      dispatch(setTokenOnRegister(res.data.data));
       toast.success("User registered successfully", {
         position: "top-right",
       });
