@@ -180,6 +180,12 @@ const Navbar = () => {
               Request for ID
             </Link>
             <Link
+              to="/my-request"
+              className="nav-link text-gray-400 font-bold lg:text-1xl"
+            >
+              My Request
+            </Link>
+            <Link
               to="/contact"
               className="nav-link text-gray-400 font-bold lg:text-1xl"
             >
