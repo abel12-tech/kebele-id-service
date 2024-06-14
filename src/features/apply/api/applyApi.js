@@ -22,7 +22,22 @@ export const applyApi = createApi({
         body: data,
       }),
     }),
+    contactUs: builder.mutation({
+      query: (data) => ({
+        url: `/contact/`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+    getMyRequest: builder.query({
+      query: () => "/resident/my-id/",
+      method: "GET",
+    }),
   }),
 });
 
-export const { useApplyForIdMutation } = applyApi;
+export const {
+  useApplyForIdMutation,
+  useGetMyRequestQuery,
+  useContactUsMutation,
+} = applyApi;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -66,7 +66,7 @@ const RequestForId = () => {
         resident,
         document,
         idType,
-        lastIdImage,
+        lastIdImage: idType === "Renewal" ? lastIdImage : null,
         reservationDate,
       });
 
@@ -129,22 +129,24 @@ const RequestForId = () => {
                 <option value="Renewal">Renewal</option>
               </select>
             </div>
-            <div>
-              <label
-                htmlFor="lastIdImage"
-                className="block text-gray-800 font-semibold mb-2"
-              >
-                Last ID Image
-              </label>
-              <input
-                type="file"
-                id="lastIdImage"
-                name="lastIdImage"
-                accept="image/*"
-                className="w-full outline-none border border-gray-300 p-2 rounded-lg"
-                onChange={(e) => handleFileChange(e, setLastIdImage)}
-              />
-            </div>
+            {idType === "Renewal" && (
+              <div>
+                <label
+                  htmlFor="lastIdImage"
+                  className="block text-gray-800 font-semibold mb-2"
+                >
+                  Last ID Image
+                </label>
+                <input
+                  type="file"
+                  id="lastIdImage"
+                  name="lastIdImage"
+                  accept="image/*"
+                  className="w-full outline-none border border-gray-300 p-2 rounded-lg"
+                  onChange={(e) => handleFileChange(e, setLastIdImage)}
+                />
+              </div>
+            )}
             <div>
               <label
                 htmlFor="reservationDate"

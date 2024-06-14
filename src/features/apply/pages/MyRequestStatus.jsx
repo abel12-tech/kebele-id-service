@@ -1,12 +1,12 @@
 import React from "react";
-import Table from "../../../components/Table";
+import Card from "../../../components/Card";
 import Navbar from "../../../components/Navbar";
 
 const MyRequestStatus = () => {
   return (
     <>
       <Navbar />
-      <Table />
+      <Card />
     </>
   );
 };
