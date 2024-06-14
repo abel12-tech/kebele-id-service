@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const resident = useSelector(selectResidentInfo);
-  const profile = resident ? resident.profile : null; // Safely accessing profile
+  const profile = resident ? resident.profile : null;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -69,10 +69,16 @@ const Navbar = () => {
             About
           </Link>
           <Link
-            to="/request-appointment"
+            to="/request-for-id"
             className="nav-link text-gray-400 font-bold lg:text-1xl"
           >
             Request for ID
+          </Link>
+          <Link
+            to="/my-request-status"
+            className="nav-link text-gray-400 font-bold lg:text-1xl"
+          >
+            My Request Status
           </Link>
           <Link
             to="/contact"
@@ -194,7 +200,7 @@ const Navbar = () => {
             {isAuthenticated ? (
               <div className="relative flex flex-col items-center">
                 <img
-                  src={profile || "https://via.placeholder.com/40"} // Use a placeholder if profile is null
+                  src={profile || "https://via.placeholder.com/40"}
                   alt="User Profile"
                   className="h-10 w-10 rounded-full border border-white cursor-pointer"
                   onClick={toggleProfileMenu}

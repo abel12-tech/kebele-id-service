@@ -15,9 +15,7 @@ const RequestForId = () => {
   const [lastIdImage, setLastIdImage] = useState(null);
   const [apply, { isLoading }] = useApplyForIdMutation();
   const residentInfo = useSelector(selectResidentInfo);
-  const [resident, setResident] = useState(
-    residentInfo ? residentInfo._id : ""
-  );
+  const resident = residentInfo ? residentInfo._id : "";
   const [reservationDate, setReservationDate] = useState("");
 
   useEffect(() => {
@@ -25,7 +23,6 @@ const RequestForId = () => {
     setReservationDate(currentDate);
   }, []);
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleFileChange = async (e, setFile) => {
@@ -60,7 +57,7 @@ const RequestForId = () => {
 
       setTimeout(() => {
         navigate("/register");
-      }, 2000); 
+      }, 2000);
       return;
     }
 
@@ -97,24 +94,6 @@ const RequestForId = () => {
           <ToastContainer position="top-right" duration={2000} />
           <h1 className="text-2xl mb-6 text-center">Request ID</h1>
           <form className="space-y-4" onSubmit={handleSubmit}>
-            <div>
-              <label
-                htmlFor="resident"
-                className="block text-gray-800 font-semibold mb-2"
-              >
-                Resident ID
-              </label>
-              <input
-                type="text"
-                id="resident"
-                name="resident"
-                className="w-full outline-none border border-gray-300 p-2 rounded-lg"
-                placeholder="Enter your resident ID"
-                value={resident}
-                onChange={(e) => setResident(e.target.value)}
-                disabled
-              />
-            </div>
             <div>
               <label
                 htmlFor="document"

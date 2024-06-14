@@ -1,15 +1,9 @@
 import React from "react";
 
 const Table = () => {
-  const data = [
-    { firstname: "John", lastname: "Doe", status: "Active" },
-    { firstname: "Jane", lastname: "Smith", status: "Inactive" },
-    { firstname: "Bob", lastname: "Johnson", status: "Pending" },
-  ];
-
   return (
     <div className="container mx-auto my-10 p-4">
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-10">
         <table className="min-w-full bg-white border">
           <thead>
             <tr className="w-full bg-gray-800 text-white">
@@ -19,13 +13,11 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((row, index) => (
-              <tr key={index} className="border-b">
-                <td className="py-2 px-4">{row.firstname}</td>
-                <td className="py-2 px-4">{row.lastname}</td>
-                <td className="py-2 px-4">{row.status}</td>
-              </tr>
-            ))}
+            <tr className="border-b">
+              <td className="py-2 text-center px-4">Abel</td>
+              <td className="py-2 text-center  px-4">Kinfu</td>
+              <td className="py-2 text-center  px-4">Up Coming</td>
+            </tr>
           </tbody>
         </table>
       </div>
