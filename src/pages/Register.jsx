@@ -19,6 +19,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [kebele, setKebele] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [registering, setRegistering] = useState(false);
   const [register] = useRegisterResidentMutation();
   const dispatch = useDispatch();
@@ -37,6 +38,11 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
     try {
       setRegistering(true);
       const imageRef = ref(storage, `Blog-images/${profile.name + v4()}`);
@@ -65,6 +71,7 @@ const Register = () => {
       setPhoneNumber("");
       setProfile(null);
       setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       setError("Invalid phone number or password");
     }
@@ -192,10 +199,28 @@ const Register = () => {
               />
             </div>
             <div>
+              <label
+                htmlFor="confirmPassword"
+                className="block text-gray-800 font-semibold mb-2"
+              >
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                className="w-full outline-none border border-gray-300 p-2 rounded-lg"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <div>
               {error && <p className="text-red-500">{error}</p>}
               <button
                 type="submit"
                 className="w-full rounded-lg bg-[#FDC351] text-gray-600 hover:bg-[#d1ae67] px-4 py-2"
+                disabled={registering}
               >
                 {registering ? "Registering..." : "Register"}
               </button>
