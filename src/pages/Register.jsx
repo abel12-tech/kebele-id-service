@@ -38,6 +38,21 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // here is where validation should be done .
+    // validating the first and last name.
+    const nameRegex = /^[A-Za-z\s'-]+$/;
+    if (!(nameRegex.test(firstName) && nameRegex.test(lastName))) {
+      setError("Name must be a valid String.");
+      return;
+    }
+    // Validate phone number
+    const isValid =
+      /^(09|07)\d{8}$/.test(phoneNumber) || /^(9|7)\d{8}$/.test(phoneNumber);
+    if (!isValid) {
+      setError("Phone number must start with 09 or 07 and be 10 digits long.");
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -73,6 +88,7 @@ const Register = () => {
       setPassword("");
       setConfirmPassword("");
     } catch (error) {
+      console.error(error);
       setError("Invalid phone number or password");
     }
   };
@@ -101,6 +117,7 @@ const Register = () => {
                   placeholder="Enter your first name"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
+                  required
                 />
               </div>
               <div>
@@ -118,6 +135,7 @@ const Register = () => {
                   placeholder="Enter your last name"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -137,6 +155,7 @@ const Register = () => {
                   placeholder="Enter your phone number"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
+                  required
                 />
               </div>
               <div>
@@ -144,7 +163,7 @@ const Register = () => {
                   htmlFor="profile"
                   className="block text-gray-800 font-semibold mb-2"
                 >
-                  Image
+                  Profile Picture
                 </label>
                 <input
                   type="file"
@@ -153,6 +172,7 @@ const Register = () => {
                   accept="image/*"
                   className="w-full outline-none border border-gray-300 p-2 rounded-lg"
                   onChange={handleFileChange}
+                  required
                 />
               </div>
             </div>
@@ -169,6 +189,7 @@ const Register = () => {
                 className="w-full outline-none border border-gray-300 p-2 rounded-lg"
                 value={kebele}
                 onChange={(e) => setKebele(e.target.value)}
+                required
               >
                 <option value="">Select your kebele</option>
                 {isLoading && <option>Loading kebeles...</option>}
@@ -196,6 +217,7 @@ const Register = () => {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
             <div>
@@ -213,6 +235,7 @@ const Register = () => {
                 placeholder="Confirm your password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
             </div>
             <div>
