@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import how from "../assets/about.jpeg";
+import how from "../assets/id2.jpg";
 
 const About = () => {
   return (
@@ -13,10 +13,9 @@ const About = () => {
             <div className="lg:w-1/2 mb-4 lg:mb-0">
               <h2 className="text-3xl font-bold mb-4">What We Do</h2>
               <p className="text-gray-700">
-                This institution was established to coordinate prosperity reform
-                works in Ethiopia. It is called FDRE Immigration, Nationality,
-                and Vital Events Agency. The history of this agency dates back
-                to 1942.
+                This is system is developed by Addis Ababa University Computer
+                science students for enable Addis Ababa city residents easily
+                apply for id and get it without hassle.
                 <br />
                 <br />
                 The agency is responsible for vital events registration,
@@ -32,25 +31,11 @@ const About = () => {
           <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between mt-8">
             <div className="lg:w-full">
               <p className="text-gray-700">
-                Based on 1951 law notification number 150/43 to assign the place
-                for cemetery, controlling cemetery and it is counted as one of
-                activities issued to the municipality by the civil code law
-                drafted on 1960 to implement vital events registration many
-                articles included on this law number 3361 /1/ for implementing
-                those articles concerning with civil status till unique
-                regulation drafted the aim of vital events the process and
-                implementation when it is compared with the modern and proper
-                registration work manner even though it is tried to include some
-                points reserving the gaps concerning vital events registration
-                and collecting information works conducted in different
-                governmental organizations (i.e Municipality, city
-                administration offices, central statistics agency and health
-                center. On this hand, the processes of registration of vital
-                events were conducted in religious organizations. So, in 1943
-                marriage, in 1954 birth, in 1968 death registration started.
-                This registration done for legal and administrational affairs
-                and by the persons who are willing to register the events
-                certificate is issued. Participants of vital events registration
+                We are currently working in improving and the system to enable
+                handle multiple requests. the system will accept the following
+                requests. new Id request and Id renewal request. which both are
+                could enable the admins to check detail and make an appointment
+                for the request made by customer.
               </p>
             </div>
           </div>
@@ -59,30 +44,25 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-2">Vision</h3>
               <div className=" border-b-2 border-gray-300 mb-4"></div>
               <p className="text-gray-700">
-                Our vision being one of the 10 best agencies in Africa in 2022
-                through supporting the information and service provision with
-                technology, making the quality fits with international standards
-                and ensuring its security.
+                Our vision to improve the process and speed of getting id and
+                making the life of Addis Ababa make more easier.
               </p>
             </div>
             <div className="lg:w-1/3 border-2 border-gray-300 p-4 flex flex-col justify-center items-center">
-              <h3 className="text-2xl font-bold mb-2">Vision</h3>
+              <h3 className="text-2xl font-bold mb-2">Mission</h3>
               <div className="border-b-2 border-gray-300 mb-4"></div>
               <p className="text-gray-700">
-                Our vision being one of the 10 best agencies in Africa in 2022
-                through supporting the information and service provision with
-                technology, making the quality fits with international standards
-                and ensuring its security.
+                our mission is to establish this system as the one which is used
+                by most kebeles and most residents for simplify the manual
+                processing of the document .
               </p>
             </div>
             <div className="lg:w-1/3 border-2 border-gray-300 p-4 flex flex-col justify-center items-center">
-              <h3 className="text-2xl font-bold mb-2">Vision</h3>
+              <h3 className="text-2xl font-bold mb-2">Team</h3>
               <div className="border-b-2 border-gray-300 mb-4"></div>
               <p className="text-gray-700">
-                Our vision being one of the 10 best agencies in Africa in 2022
-                through supporting the information and service provision with
-                technology, making the quality fits with international standards
-                and ensuring its security.
+                Our Team is currently composed of three computer science
+                students which have a deep understanding of website development.
               </p>
             </div>
           </div>
