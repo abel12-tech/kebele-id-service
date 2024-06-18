@@ -33,6 +33,10 @@ export const applyApi = createApi({
       query: () => "/resident/my-id/",
       method: "GET",
     }),
+    getNotification: builder.query({
+      query: () => "/notification/",
+      method: "GET",
+    }),
   }),
 });
 
@@ -40,4 +44,5 @@ export const {
   useApplyForIdMutation,
   useGetMyRequestQuery,
   useContactUsMutation,
+  useGetNotificationQuery,
 } = applyApi;

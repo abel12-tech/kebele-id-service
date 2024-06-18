@@ -1,5 +1,5 @@
-GET https://kebele-id-renewal-and-issuing-backend.onrender.com/api/v1/kebele/
-
+GET https://kebele-id-renewal-and-issuing-backend.onrender.com/api/v1/notification/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmNiOGIzNzA2MmVkM2Q2NTY4NTQ1MiIsImlhdCI6MTcxODY0MDQyNSwiZXhwIjoxNzE5NTA0NDI1fQ.XHBcG3drw78RHjx9-QJq3i67j8iR5rd3O82w4_78jq0
 ### 
 POST https://kebele-id-renewal-and-issuing-backend.onrender.com/api/v1/resident/login/
 Content-Type: application/json
