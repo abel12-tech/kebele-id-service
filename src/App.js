@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import RequestForId from "./features/apply/pages/RequestForId";
 import MyRequestStatus from "./features/apply/pages/MyRequestStatus";
+import UpdateProfile from "./pages/UpdateProfile";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/update-profile" element={<UpdateProfile />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/register" element={<Register />} />

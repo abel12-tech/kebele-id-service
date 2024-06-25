@@ -12,6 +12,7 @@ import { selectResidentInfo } from "../../authentication/slice/authSlice";
 const RequestForId = () => {
   const [document, setDocument] = useState([]);
   const [idType, setIdType] = useState("New");
+  const [photo, setUserPhoto] = useState(null);
   const [lastIdImage, setLastIdImage] = useState(null);
   const [apply, { isLoading }] = useApplyForIdMutation();
   const residentInfo = useSelector(selectResidentInfo);
@@ -25,15 +26,20 @@ const RequestForId = () => {
 
   const navigate = useNavigate();
 
-  const handleFileChange = async (e, setFile) => {
+  const handleFileChange = async (e, setImage, imageType) => {
     const file = e.target.files[0];
     const fileRef = ref(storage, `documents/${file.name}`);
     await uploadBytes(fileRef, file);
     const fileUrl = await getDownloadURL(fileRef);
-    setFile(fileUrl);
+
+    if (imageType === "userPhoto") {
+      setUserPhoto(fileUrl);
+    } else if (imageType === "lastIdImage") {
+      setLastIdImage(fileUrl);
+    }
   };
 
-  const handleMultipleFilesChange = async (e, setFiles) => {
+  const handleMultipleFilesChange = async (e) => {
     const files = Array.from(e.target.files);
     const fileUrls = await Promise.all(
       files.map(async (file) => {
@@ -42,7 +48,7 @@ const RequestForId = () => {
         return await getDownloadURL(fileRef);
       })
     );
-    setFiles(fileUrls);
+    setDocument(fileUrls);
   };
 
   const handleSubmit = async (e) => {
@@ -66,10 +72,10 @@ const RequestForId = () => {
         resident,
         document,
         idType,
+        photo: idType === "Renewal" ? photo : null,
         lastIdImage: idType === "Renewal" ? lastIdImage : null,
         reservationDate,
       });
-
       if (res.error) {
         throw new Error(res.error.data.message);
       }
@@ -108,9 +114,45 @@ const RequestForId = () => {
                 accept="image/*"
                 multiple
                 className="w-full outline-none border border-gray-300 p-2 rounded-lg"
-                onChange={(e) => handleMultipleFilesChange(e, setDocument)}
+                onChange={handleMultipleFilesChange}
               />
             </div>
+            <div>
+              <label
+                htmlFor="userPhoto"
+                className="block text-gray-800 font-semibold mb-2"
+              >
+                Photo
+              </label>
+              <input
+                type="file"
+                id="photo"
+                name="photo"
+                accept="image/*"
+                className="w-full outline-none border border-gray-300 p-2 rounded-lg"
+                onChange={(e) => handleFileChange(e, setUserPhoto, "photo")}
+              />
+            </div>
+            {idType === "Renewal" && (
+              <div>
+                <label
+                  htmlFor="lastIdImage"
+                  className="block text-gray-800 font-semibold mb-2"
+                >
+                  Last ID Image
+                </label>
+                <input
+                  type="file"
+                  id="lastIdImage"
+                  name="lastIdImage"
+                  accept="image/*"
+                  className="w-full outline-none border border-gray-300 p-2 rounded-lg"
+                  onChange={(e) =>
+                    handleFileChange(e, setLastIdImage, "lastIdImage")
+                  }
+                />
+              </div>
+            )}
             <div>
               <label
                 htmlFor="idType"
@@ -129,24 +171,6 @@ const RequestForId = () => {
                 <option value="Renewal">Renewal</option>
               </select>
             </div>
-            {idType === "Renewal" && (
-              <div>
-                <label
-                  htmlFor="lastIdImage"
-                  className="block text-gray-800 font-semibold mb-2"
-                >
-                  Last ID Image
-                </label>
-                <input
-                  type="file"
-                  id="lastIdImage"
-                  name="lastIdImage"
-                  accept="image/*"
-                  className="w-full outline-none border border-gray-300 p-2 rounded-lg"
-                  onChange={(e) => handleFileChange(e, setLastIdImage)}
-                />
-              </div>
-            )}
             <div>
               <label
                 htmlFor="reservationDate"
