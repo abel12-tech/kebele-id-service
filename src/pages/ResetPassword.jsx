@@ -19,7 +19,7 @@ const ResetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await resetPassword({ token, newPassword }).unwrap();
+      await resetPassword({ token, newPassword }).unwrap();
       toast.success("Password reset successfully!");
       navigate("/login");
     } catch (err) {
