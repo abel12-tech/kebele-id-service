@@ -23,7 +23,7 @@ const UpdateProfile = () => {
   const [profileImage, setProfileImage] = useState(
     resident ? resident.profile : null
   );
-  const [updateProfile, { isLoading }] = useUpdateProfileMutation();
+  const [updateProfile] = useUpdateProfileMutation();
   const navigate = useNavigate();
 
   const handleFirstNameChange = (e) => setFirstName(e.target.value);
@@ -102,7 +102,6 @@ const UpdateProfile = () => {
               <input
                 type="file"
                 onChange={handleProfileImageChange}
-                name="photo"
                 accept="image/*"
                 className="rounded-lg border-gray-300 border px-3 py-2 w-full"
               />
@@ -112,7 +111,7 @@ const UpdateProfile = () => {
                 type="submit"
                 className="w-full rounded-lg bg-[#FDC351] text-gray-600 hover:bg-[#d1ae67] px-4 py-2"
               >
-                {isLoading ? "Updating..." : "Update Profile"}
+                Update Profile
               </button>
             </div>
           </form>

@@ -10,6 +10,8 @@ import Login from "./pages/Login";
 import RequestForId from "./features/apply/pages/RequestForId";
 import MyRequestStatus from "./features/apply/pages/MyRequestStatus";
 import UpdateProfile from "./pages/UpdateProfile";
+import ForgetPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 const App = () => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/my-request-status" element={<MyRequestStatus />} />
         <Route path="/request-for-id" element={<RequestForId />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </>
