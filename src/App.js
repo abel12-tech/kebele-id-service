@@ -12,6 +12,7 @@ import MyRequestStatus from "./features/apply/pages/MyRequestStatus";
 import UpdateProfile from "./pages/UpdateProfile";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
+import ChangePassword from "./pages/ChangePassword";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/my-request-status" element={<MyRequestStatus />} />
         <Route path="/request-for-id" element={<RequestForId />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/login" element={<Login />} />
       </Routes>

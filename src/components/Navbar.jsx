@@ -10,7 +10,7 @@ import {
   selectResidentInfo,
 } from "../features/authentication/slice/authSlice";
 import { useGetNotificationQuery } from "../features/apply/api/applyApi";
-import { RiLockPasswordLine } from "react-icons/ri";
+import { FaExchangeAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -193,11 +193,11 @@ const Navbar = () => {
                 </li>
                 <li className="flex">
                   <Link
-                    to="/forget-password"
+                    to="/change-password"
                     className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                   >
-                    <RiLockPasswordLine className="w-4 h-4 mr-3" />
-                    <span>Forget Password</span>
+                    <FaExchangeAlt className="w-4 h-4 mr-3" />
+                    <span>Change Password</span>
                   </Link>
                 </li>
                 <li className="flex">

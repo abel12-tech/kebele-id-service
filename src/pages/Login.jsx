@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { useLoginMutation } from "../features/authentication/api/authApi";
 import { useDispatch } from "react-redux";
 import { setTokenOnLogin } from "../features/authentication/slice/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -84,6 +84,11 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+            </div>
+            <div className="text-right">
+              <Link to="/forget-password" className="text-sm text-blue-500 hover:underline">
+                Forgot Password?
+              </Link>
             </div>
             <div>
               <button
