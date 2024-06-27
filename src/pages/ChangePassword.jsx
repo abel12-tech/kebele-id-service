@@ -34,7 +34,7 @@ const ChangePassword = () => {
     try {
       await changePassword({ oldPassword, newPassword }).unwrap();
       toast.success("Password changed successfully!");
-      navigate("/profile");
+      navigate("/login");
     } catch (err) {
       console.error("Failed to change password:", err);
       toast.error("Failed to change password");
